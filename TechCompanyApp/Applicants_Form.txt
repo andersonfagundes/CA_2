@@ -1,35 +1,39 @@
-Olivia Smith
-Lucas Johnson
-Emma Williams
-Noah Brown
-Mia Davis
-James Martinez
-Isabella Garcia
-Benjamin Anderson
-Sophia Thomas
-William Taylor
-Ava Lee
-Ethan Harris
-Charlotte Clark
-Mason Lewis
-Amelia Walker
-Henry Young
-Harper King
-Alexander Scott
-Grace Green
-Samuel Adams
-Lily Perez
-Daniel Moore
-Zoe Hall
-Logan Allen
-Chloe Wright
-Jacob Carter
-Ella Mitchell
-Sebastian King
-Scarlett Baker
-Owen Nelson
-Natalie Robinson
-Julian Hill
-Aria White
-Wyatt Adams
-Victoria Nelson
+Name,Department,Position,Job title,Company 
+Olivia Smith, Marketing, Senior, Marketing Manager, BlueWave Inc.
+Lucas Johnson, IT, Junior, Software Developer, NovaTech Solutions
+Emma Williams, HR, Mid-Level, HR Specialist, PeopleFirst Corp
+Noah Brown, Sales, Senior, Sales Executive, Quantum Commerce
+Mia Davis, Finance, Junior, Financial Analyst, Apex Capital
+James Martinez, Engineering, Lead, Mechanical Engineer, Titan Industries
+Isabella Garcia, Design, Mid-Level, UX Designer, CreativeCore
+Benjamin Anderson, IT, Intern, QA Tester, CyberGrid
+Sophia Thomas, Operations, Senior, Operations Manager, Streamline Ltd
+William Taylor, Research, Mid-Level, Data Scientist, NeuralEdge
+Ava Lee, HR, Junior, HR Assistant, Elevate Group
+Ethan Harris, Marketing, Lead, Brand Strategist, SparkHive
+Charlotte Clark, Finance, Senior, Accountant, LedgerOne
+Mason Lewis, IT, Mid-Level, Backend Developer, FusionStack
+Amelia Walker, Legal, Senior, Legal Advisor, TrustLaw Inc
+Henry Young, Product, Mid-Level, Product Owner, BrightPath
+Harper King, Sales, Junior, Sales Associate, FlexPoint
+Alexander Scott, Engineering, Senior, Civil Engineer, BuildWise Co
+Grace Green, Design, Junior, Graphic Designer, PixelBloom
+Samuel Adams, Research, Mid-Level, Research Analyst, InsightSphere
+Lily Perez, IT, Lead, DevOps Engineer, CloudNova
+Daniel Moore, HR, Mid-Level, Recruiter, TalentBridge
+Zoe Hall, Product, Senior, Product Manager, NovaPulse
+Logan Allen, Finance, Junior, Budget Analyst, FinScope
+Chloe Wright, Operations, Mid-Level, Supply Chain Analyst, LogixOne
+Jacob Carter, IT, Senior, Frontend Developer, CodeNest
+Ella Mitchell, Marketing, Intern, Social Media Coordinator, BrandVibe
+Sebastian King, Legal, Mid-Level, Corporate Counsel, LawBridge
+Scarlett Baker, Design, Senior, Creative Director, ImagineWorks
+Owen Nelson, Engineering, Junior, Electrical Engineer, VoltEdge
+Natalie Robinson, Sales, Lead, Regional Sales Manager, ApexReach
+Julian Hill, Product, Intern, Product Assistant, InnovateIQ
+Aria White, Finance, Lead, Finance Manager, SmartLedger
+Wyatt Adams, IT, Senior, Systems Architect, CoreSys
+Victoria Nelson, HR, Lead, HR Manager, PeopleCore
+Liam Bennett, Research, Junior, Lab Technician, GeneQuest
+Ella Scott, Product, Mid-Level, Product Designer, ProtoLabs
+
