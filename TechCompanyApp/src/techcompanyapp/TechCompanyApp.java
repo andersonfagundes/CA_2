@@ -21,7 +21,9 @@ public class TechCompanyApp {
                 System.out.println("File not found or could not be read. Try again.\n");
             }
         }
-
+        
+        System.out.println("");
+        
         System.out.println("Please select an option:");
         for (int i = 0; i < MenuOption.values().length; i++) {
             System.out.println((i + 1) + ". " + MenuOption.values()[i]);
@@ -30,6 +32,18 @@ public class TechCompanyApp {
         int choice = Integer.parseInt(scanner.nextLine());
 
         switch (MenuOption.values()[choice - 1]) {
+            case SORT -> {
+                // call sort function here
+                return;
+            }
+            case SEARCH -> {
+                // call search function here
+                return;
+            }
+            case ADD_RECORDS -> {
+                // call add records function here
+                return;
+            }
             case EXIT -> {
                 System.out.println("Goodbye...");
                 return;
@@ -45,7 +59,7 @@ public class TechCompanyApp {
             boolean hasContent = false;
 
             while ((line = br.readLine()) != null) {
-                System.out.println(line);
+                //System.out.println(line);
                 hasContent = true;
             }
 
