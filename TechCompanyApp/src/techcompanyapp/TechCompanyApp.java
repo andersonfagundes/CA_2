@@ -33,15 +33,18 @@ public class TechCompanyApp {
 
         switch (MenuOption.values()[choice - 1]) {
             case SORT -> {
-                // call sort function here
+                System.out.println("SORT Selected ");
+                
                 return;
             }
             case SEARCH -> {
-                // call search function here
+                System.out.println("SEARCH Selected ");
+                
                 return;
             }
             case ADD_RECORDS -> {
-                // call add records function here
+                System.out.println("ADD_RECORDS Selected ");
+                
                 return;
             }
             case EXIT -> {
