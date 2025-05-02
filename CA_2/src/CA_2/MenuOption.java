@@ -1,4 +1,4 @@
-package techcompanyapp;
+package CA_2;
 
 public enum MenuOption {
     SORT,
