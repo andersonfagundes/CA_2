@@ -11,15 +11,15 @@ public class CA_2 {
     public static void main(String[] args) {
         // 1. Solicita o nome do arquivo até ser encontrado ou criado
         while (true) {
-            System.out.print("Enter filename to load (e.g., Applicants_Form.txt): ");
+            System.out.println("Enter filename to load (Applicants_Form.txt): ");
             filename = scanner.nextLine().trim();
 
             File file = new File(filename);
-            if (file.exists() || createFile(filename)) {
+            if (file.exists()) {
                 readFile(filename);
                 break;
             } else {
-                System.out.println("Invalid file or cannot be created. Try again.");
+                System.out.println("Invalid file. Try again.");
             }
         }
 
@@ -46,15 +46,6 @@ public class CA_2 {
             } catch (Exception e) {
                 System.out.println("Invalid choice. Try again.");
             }
-        }
-    }
-
-    static boolean createFile(String filename) {
-        try {
-            File file = new File(filename);
-            return file.createNewFile();
-        } catch (IOException e) {
-            return false;
         }
     }
 
