@@ -20,6 +20,7 @@ public class CA_2 {
                 break;
             } else {
                 System.out.println("Invalid file. Try again.");
+                System.out.println("");
             }
         }
 
@@ -66,6 +67,7 @@ public class CA_2 {
                     employees.add(e);
                 }
             }
+            System.out.println("");
             System.out.println("File loaded with " + employees.size() + " employees.");
         } catch (IOException e) {
             System.out.println("Failed to read file.");
@@ -153,21 +155,24 @@ public class CA_2 {
     }
 
     static void sortEmployees() {
-        if (employees.isEmpty()) {
-            System.out.println("No employees to sort.");
-            return;
-        }
-
-        System.out.println("Sorting employees by name...");
-        List<Employee> sorted = mergeSort(new ArrayList<>(employees), 1); // 1 = Name
-
-        System.out.printf("\n%-20s %-15s %-10s %-20s %-15s\n", "Name", "Department", "Level", "Job Title", "Company");
-        System.out.println("-------------------------------------------------------------------------------");
-
-        for (int i = 0; i < Math.min(20, sorted.size()); i++) {
-            System.out.println(sorted.get(i));
-        }
+    if (employees.isEmpty()) {
+        System.out.println("No employees to sort.");
+        return;
     }
+    
+    List<Employee> sorted = mergeSort(new ArrayList<>(employees), 1); // 1 = Name
+
+    System.out.println("");
+    System.out.println("Sorting "+ sorted.size() + " employees by name: ");
+    System.out.println("");
+    
+    System.out.printf("%-20s %-23s %-16s %-22s %-15s\n", "Name", "Department", "Level", "Job Title", "Company");
+    System.out.println("--------------------------------------------------------------------------------------------------------------");
+
+    for (Employee e : sorted) {
+        System.out.println(e);
+    }
+}
 
     static List<Employee> mergeSort(List<Employee> list, int field) {
         if (list.size() <= 1) return list;
