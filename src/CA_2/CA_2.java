@@ -223,8 +223,11 @@ public class CA_2 {
         int index = binarySearch(sorted, query);
 
         if (index >= 0) {
+            System.out.println("Employee found: \n");
+            System.out.printf("%-20s %-23s %-16s %-22s %-15s\n", "Name", "Department", "Level", "Job Title", "Company");
+            System.out.println("--------------------------------------------------------------------------------------------------------------");
             Employee e = sorted.get(index);
-            System.out.println("Employee found:\n" + e);
+            System.out.println(e);
         } else {
             System.out.println("Employee not found.");
         }
