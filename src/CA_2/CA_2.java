@@ -94,10 +94,10 @@ public class CA_2 {
     }
 
     static void addEmployeeManually() {
-        System.out.print("Name: ");
+        System.out.println("Please input the Player Name: ");
         String name = scanner.nextLine().trim();
 
-        System.out.print("Department: ");
+        System.out.print("Please select from the following Management Staff:: ");
         String dept = scanner.nextLine().trim();
 
         System.out.print("Manager Level: ");

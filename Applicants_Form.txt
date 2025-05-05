@@ -49,3 +49,4 @@ Maria Clark, Sales, Mid, Project Manager, TechCorp
 Bob Lee, HR, Mid, Analyst, TechCorp
 John Doe, Sales, Lead, Project Manager, BizSoft
 John Doe, HR, Junior, Project Manager, InnovateX
+Anderson Fagundes, IT Development, Junior, Software Engineer, Google
