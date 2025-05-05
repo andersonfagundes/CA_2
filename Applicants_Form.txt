@@ -44,3 +44,8 @@ Maria Clark, IT, Lead, Project Manager, BizSoft
 Test Employee, Test Department, Junior, Test Title, Test Company
 Maria Clark, Finance, Junior, Project Manager, TechCorp
 Jane Smith, Sales, Lead, Software Engineer, BizSoft
+Alice Johnson, HR, Mid, Software Engineer, DevSolutions
+Maria Clark, Sales, Mid, Project Manager, TechCorp
+Bob Lee, HR, Mid, Analyst, TechCorp
+John Doe, Sales, Lead, Project Manager, BizSoft
+John Doe, HR, Junior, Project Manager, InnovateX

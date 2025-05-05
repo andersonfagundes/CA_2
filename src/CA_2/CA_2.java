@@ -133,6 +133,7 @@ public class CA_2 {
         saveToFile(e);
 
         System.out.println("\nRandom Employee Generated:");
+        System.out.println("--------------------------");
         System.out.printf("Name: %s\nDepartment: %s\nManager Level: %s\nJob Title: %s\nCompany: %s\n",
                 name, dept, level, title, company);
     }
