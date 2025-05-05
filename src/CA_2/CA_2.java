@@ -158,9 +158,8 @@ public class CA_2 {
             return;
         }
 
-        System.out.println("Sort by:\n1. Name\n2. Department\n3. Manager\n4. Job Title\n5. Company");
-        int field = Integer.parseInt(scanner.nextLine());
-        List<Employee> sorted = mergeSort(new ArrayList<>(employees), field);
+        System.out.println("Sorting employees by name...");
+        List<Employee> sorted = mergeSort(new ArrayList<>(employees), 1); // 1 = Name
 
         System.out.printf("\n%-20s %-15s %-10s %-20s %-15s\n", "Name", "Department", "Level", "Job Title", "Company");
         System.out.println("-------------------------------------------------------------------------------");
