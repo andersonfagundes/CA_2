@@ -76,13 +76,13 @@ public class CA_2 {
 
     static void showAddRecordMenu() {
         System.out.println("\nAdd Record Menu:");
-        for (int i = 0; i < AddRecordOption.values().length; i++) {
-            System.out.println((i + 1) + ". " + AddRecordOption.values()[i]);
+        for (int i = 0; i < MenuAddEmployeeOption.values().length; i++) {
+            System.out.println((i + 1) + ". " + MenuAddEmployeeOption.values()[i]);
         }
 
         try {
             int option = Integer.parseInt(scanner.nextLine());
-            AddRecordOption selected = AddRecordOption.values()[option - 1];
+            MenuAddEmployeeOption selected = MenuAddEmployeeOption.values()[option - 1];
 
             switch (selected) {
                 case ADD_EMPLOYEE -> addEmployeeManually();
@@ -94,11 +94,24 @@ public class CA_2 {
     }
 
     static void addEmployeeManually() {
+        System.out.println("");
         System.out.println("Please input the Player Name: ");
         String name = scanner.nextLine().trim();
+        
+        System.out.println("");
+        System.out.println("Please select from the following Management Staff:");
+        ManagementStaff.showMenu();
 
-        System.out.print("Please select from the following Management Staff:: ");
-        String dept = scanner.nextLine().trim();
+        ManagementStaff selectedStaff = null;
+        while (selectedStaff == null) {
+            System.out.print("Enter option (1-" + ManagementStaff.values().length + "): ");
+            try {
+                int input = Integer.parseInt(scanner.nextLine().trim());
+                selectedStaff = ManagementStaff.fromOption(input);
+            } catch (Exception e) {
+                System.out.println("Invalid selection. Please try again.");
+            }
+        }
 
         System.out.print("Manager Level: ");
         String level = scanner.nextLine().trim();
@@ -109,7 +122,7 @@ public class CA_2 {
         System.out.print("Company: ");
         String company = scanner.nextLine().trim();
 
-        Employee e = new Employee(name, new Department(dept), new Manager("", level), title, company);
+        Employee e = new Employee(name, new Department(selectedStaff.getDisplayName()), new Manager("", level), title, company);
         employees.add(e);
         saveToFile(e);
         System.out.println("Employee added.");
