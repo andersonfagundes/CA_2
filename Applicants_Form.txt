@@ -36,7 +36,6 @@ Wyatt Adams, IT, Senior, Systems Architect, CoreSys
 Victoria Nelson, HR, Lead, HR Manager, PeopleCore
 Liam Bennett, Research, Junior, Lab Technician, GeneQuest
 Ella Scott, Product, Mid-Level, Product Designer, ProtoLabs
-
 Anderson Fagundes, IT Department, Mid-Level, Software Engineer, Google
 Michael Brown, Sales, Senior, HR Manager, Enterprises Ltd.
 Jane Smith, Sales, Junior, Marketing Specialist, StartUpCo
@@ -50,3 +49,5 @@ Bob Lee, HR, Mid, Analyst, TechCorp
 John Doe, Sales, Lead, Project Manager, BizSoft
 John Doe, HR, Junior, Project Manager, InnovateX
 Anderson Fagundes, IT Development, Junior, Software Engineer, Google
+Bob Lee, Finance, Lead, HR Specialist, InnovateX
+John Doe, Finance, Junior, HR Specialist, DevSolutions

@@ -103,29 +103,79 @@ public class CA_2 {
         ManagementStaff.showMenu();
 
         ManagementStaff selectedStaff = null;
+        
+        String level = "";
+        int choiceDepartament = -1;
+        
         while (selectedStaff == null) {
-            System.out.print("Enter option (1-" + ManagementStaff.values().length + "): ");
             try {
                 int input = Integer.parseInt(scanner.nextLine().trim());
                 selectedStaff = ManagementStaff.fromOption(input);
+                
+                if (selectedStaff == ManagementStaff.HEAD_MANAGER) {                
+                    level = "Head Manager";
+                }    
+                // Se o cargo selecionado for "Assistant Manager", exibe o menu de departamentos
+                else if (selectedStaff == ManagementStaff.ASSISTANT_MANAGER) {
+                    level = "Assistant Manager";
+                    //showDepartmentMenu(); // Exibe o menu de departamentos
+                }
+                else if (selectedStaff == ManagementStaff.TEAM_LEAD) {
+                    level = "Team Lead";
+                }
+                choiceDepartament = showDepartmentMenu();
             } catch (Exception e) {
                 System.out.println("Invalid selection. Please try again.");
             }
         }
-
-        System.out.print("Manager Level: ");
-        String level = scanner.nextLine().trim();
-
+        
+        String department = "";
+        if(choiceDepartament == 1){
+            department = "Customer Servece";
+        }
+        else if(choiceDepartament == 2){
+            department = "Technical Support";    
+        }
+        else if(choiceDepartament == 3){
+            department = "HR";
+        }
+        
+         
         System.out.print("Job Title: ");
         String title = scanner.nextLine().trim();
 
         System.out.print("Company: ");
         String company = scanner.nextLine().trim();
 
-        Employee e = new Employee(name, new Department(selectedStaff.getDisplayName()), new Manager("", level), title, company);
+        Employee e = new Employee(name, new Department(department), new Manager("", level), title, company);
         employees.add(e);
         saveToFile(e);
-        System.out.println("Employee added.");
+        System.out.println("“"+name+"” has been added as “"+level+"” to “"+department+"” successfully!");
+        
+    }
+
+    // Método para exibir o menu de seleção de departamento
+    static int showDepartmentMenu() {
+        System.out.println("\nPlease select the Department:");
+        for (int i = 0; i < DepartmentMenuOption.values().length; i++) {
+            System.out.println((i + 1) + ". " + DepartmentMenuOption.values()[i]);
+        }
+
+        int departmentChoice = -1;
+        while (departmentChoice < 1 || departmentChoice > DepartmentMenuOption.values().length) {
+            try {
+                departmentChoice = Integer.parseInt(scanner.nextLine());
+                if (departmentChoice < 1 || departmentChoice > DepartmentMenuOption.values().length) {
+                    System.out.println("Invalid option. Try again.");
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a number.");
+            }
+        }
+
+        DepartmentMenuOption selectedDepartment = DepartmentMenuOption.values()[departmentChoice - 1];
+        System.out.println("Selected Department: " + selectedDepartment);
+        return departmentChoice;
     }
 
     static void generateRandomEmployee() {
@@ -169,24 +219,24 @@ public class CA_2 {
     }
 
     static void sortEmployees() {
-    if (employees.isEmpty()) {
-        System.out.println("No employees to sort.");
-        return;
-    }
-    
-    List<Employee> sorted = mergeSort(new ArrayList<>(employees), 1); // 1 = Name
+        if (employees.isEmpty()) {
+            System.out.println("No employees to sort.");
+            return;
+        }
 
-    System.out.println("");
-    System.out.println("Sorting "+ sorted.size() + " employees by name: ");
-    System.out.println("");
-    
-    System.out.printf("%-20s %-23s %-16s %-22s %-15s\n", "Name", "Department", "Level", "Job Title", "Company");
-    System.out.println("--------------------------------------------------------------------------------------------------------------");
+        List<Employee> sorted = mergeSort(new ArrayList<>(employees), 1); // 1 = Name
 
-    for (Employee e : sorted) {
-        System.out.println(e);
+        System.out.println("");
+        System.out.println("Sorting " + sorted.size() + " employees by name: ");
+        System.out.println("");
+
+        System.out.printf("%-20s %-23s %-16s %-22s %-15s\n", "Name", "Department", "Level", "Job Title", "Company");
+        System.out.println("--------------------------------------------------------------------------------------------------------------");
+
+        for (Employee e : sorted) {
+            System.out.println(e);
+        }
     }
-}
 
     static List<Employee> mergeSort(List<Employee> list, int field) {
         if (list.size() <= 1) return list;
