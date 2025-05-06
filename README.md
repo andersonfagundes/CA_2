@@ -1,3 +1,5 @@
+![image_alt](https://github.com/andersonfagundes/CA_2/blob/c760a5432ebb05909e43a27c8d29890c04c457e4/screenshot.png)
+
 ## 🚀 About this project
 
 This is a task for the **Tech Company** application, which contains the following functionalities:
