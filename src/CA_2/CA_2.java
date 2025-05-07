@@ -1,22 +1,29 @@
+// This file is part of the CA_2 project
 package CA_2;
 
 import java.io.*;
 import java.util.*;
 
 public class CA_2 {
+
+    // Scanner to read input from the user
     static Scanner scanner = new Scanner(System.in);
+
+    // List to store all employees
     static List<Employee> employees = new ArrayList<>();
+
+    // Name of the file used for reading and writing data
     static String filename;
 
     public static void main(String[] args) {
-        // 1. Solicita o nome do arquivo até ser encontrado ou criado
+        // Ask the user for a file name until a valid file is found
         while (true) {
             System.out.println("Enter filename to load (Applicants_Form.txt): ");
             filename = scanner.nextLine().trim();
 
             File file = new File(filename);
             if (file.exists()) {
-                readFile(filename);
+                readFile(filename); // Load the data
                 break;
             } else {
                 System.out.println("Invalid file. Try again.");
@@ -24,7 +31,7 @@ public class CA_2 {
             }
         }
 
-        // 2. Exibe o menu principal
+        // Show the main menu with options
         while (true) {
             System.out.println("\nChoose an option:");
             for (int i = 0; i < MenuOption.values().length; i++) {
@@ -36,12 +43,12 @@ public class CA_2 {
                 MenuOption option = MenuOption.values()[choice - 1];
 
                 switch (option) {
-                    case SORT -> sortEmployees();
-                    case SEARCH -> searchEmployee();
-                    case ADD_RECORDS -> showAddRecordMenu();
+                    case SORT -> sortEmployees(); // Sort employees
+                    case SEARCH -> searchEmployee(); // Search employee
+                    case ADD_RECORDS -> showAddRecordMenu(); // Add employee
                     case EXIT -> {
                         System.out.println("Exiting program. Goodbye!");
-                        return;
+                        return; // Exit the program
                     }
                 }
             } catch (Exception e) {
@@ -50,6 +57,7 @@ public class CA_2 {
         }
     }
 
+    // Reads employee data from a file
     static void readFile(String filename) {
         employees.clear();
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
@@ -74,6 +82,7 @@ public class CA_2 {
         }
     }
 
+    // Shows the add employee menu
     static void showAddRecordMenu() {
         System.out.println("\nAdd Record Menu:");
         for (int i = 0; i < MenuAddEmployeeOption.values().length; i++) {
@@ -93,6 +102,7 @@ public class CA_2 {
         }
     }
 
+    // Adds an employee with input from the user
     static void addEmployeeManually() {
         System.out.println("");
         System.out.println("Please input the Player Name: ");
@@ -114,16 +124,13 @@ public class CA_2 {
                 
                 if (selectedStaff == ManagementStaff.HEAD_MANAGER) {                
                     level = "Head Manager";
-                }    
-                // Se o cargo selecionado for "Assistant Manager", exibe o menu de departamentos
-                else if (selectedStaff == ManagementStaff.ASSISTANT_MANAGER) {
+                } else if (selectedStaff == ManagementStaff.ASSISTANT_MANAGER) {
                     level = "Assistant Manager";
-                    //showDepartmentMenu(); // Exibe o menu de departamentos
-                }
-                else if (selectedStaff == ManagementStaff.TEAM_LEAD) {
+                } else if (selectedStaff == ManagementStaff.TEAM_LEAD) {
                     level = "Team Lead";
                 }
-                choiceDepartament = showDepartmentMenu();
+
+                choiceDepartament = showDepartmentMenu(); // Choose department
             } catch (Exception e) {
                 System.out.println("Invalid selection. Please try again.");
             }
@@ -132,15 +139,12 @@ public class CA_2 {
         String department = "";
         if(choiceDepartament == 1){
             department = "Customer Servece";
-        }
-        else if(choiceDepartament == 2){
+        } else if(choiceDepartament == 2){
             department = "Technical Support";    
-        }
-        else if(choiceDepartament == 3){
+        } else if(choiceDepartament == 3){
             department = "HR";
         }
         
-         
         System.out.print("Job Title: ");
         String title = scanner.nextLine().trim();
 
@@ -149,12 +153,11 @@ public class CA_2 {
 
         Employee e = new Employee(name, new Department(department), new Manager("", level), title, company);
         employees.add(e);
-        saveToFile(e);
+        saveToFile(e); // Save the employee to file
         System.out.println("“"+name+"” has been added as “"+level+"” to “"+department+"” successfully!");
-        
     }
 
-    // Método para exibir o menu de seleção de departamento
+    // Show department options and return the user's choice
     static int showDepartmentMenu() {
         System.out.println("\nPlease select the Department:");
         for (int i = 0; i < DepartmentMenuOption.values().length; i++) {
@@ -178,6 +181,7 @@ public class CA_2 {
         return departmentChoice;
     }
 
+    // Creates a random employee with fake data
     static void generateRandomEmployee() {
         String[] names = {"John Doe", "Jane Smith", "Alice Johnson", "Bob Lee", "Maria Clark"};
         String[] departments = {"IT", "HR", "Marketing", "Finance", "Sales"};
@@ -201,10 +205,12 @@ public class CA_2 {
                 name, dept, level, title, company);
     }
 
+    // Picks a random value from the list
     static String getRandom(String[] array) {
         return array[new Random().nextInt(array.length)];
     }
 
+    // Save the employee to the file
     static void saveToFile(Employee e) {
         try (FileWriter fw = new FileWriter(filename, true)) {
             fw.write(String.format("%s, %s, %s, %s, %s%n",
@@ -218,13 +224,14 @@ public class CA_2 {
         }
     }
 
+    // Sorts employees by name and shows the list
     static void sortEmployees() {
         if (employees.isEmpty()) {
             System.out.println("No employees to sort.");
             return;
         }
 
-        List<Employee> sorted = mergeSort(new ArrayList<>(employees), 1); // 1 = Name
+        List<Employee> sorted = mergeSort(new ArrayList<>(employees), 1); // Sort by name
 
         System.out.println("");
         System.out.println("Sorting " + sorted.size() + " employees by name: ");
@@ -238,6 +245,7 @@ public class CA_2 {
         }
     }
 
+    // Recursive merge sort function
     static List<Employee> mergeSort(List<Employee> list, int field) {
         if (list.size() <= 1) return list;
         int mid = list.size() / 2;
@@ -246,6 +254,7 @@ public class CA_2 {
         return merge(left, right, field);
     }
 
+    // Merges two sorted lists into one
     static List<Employee> merge(List<Employee> left, List<Employee> right, int field) {
         List<Employee> result = new ArrayList<>();
         int i = 0, j = 0;
@@ -263,6 +272,7 @@ public class CA_2 {
         return result;
     }
 
+    // Returns the value (like name or department) used for sorting
     static String getField(Employee e, int field) {
         return switch (field) {
             case 1 -> e.getName();
@@ -274,6 +284,7 @@ public class CA_2 {
         };
     }
 
+    // Search employee by name using binary search
     static void searchEmployee() {
         if (employees.isEmpty()) {
             System.out.println("No employees loaded.");
@@ -297,6 +308,7 @@ public class CA_2 {
         }
     }
 
+    // Binary search for employee name
     static int binarySearch(List<Employee> list, String name) {
         int low = 0, high = list.size() - 1;
         while (low <= high) {
